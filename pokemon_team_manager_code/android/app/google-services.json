@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "75215278797",
+    "project_id": "pokemon-team-manager-fb",
+    "storage_bucket": "pokemon-team-manager-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75215278797:android:3439b279fd68d7526f0f84",
+        "android_client_info": {
+          "package_name": "com.example.pokemon_team_manager_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75215278797-1q4ij5855qv3e4gflo0em6hr85jfs74e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs2Sl5xuvWQDdHYCEClZMTeb19SA6izNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75215278797-1q4ij5855qv3e4gflo0em6hr85jfs74e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
