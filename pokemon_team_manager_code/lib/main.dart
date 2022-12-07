@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:pokemon_team_manager_code/screens/probe.dart';
+import 'package:pokemon_team_manager_code/screens/teams_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/teams',
       routes: {
-        '/teams': (_) => const ChatListScreen(),
+        '/teams': (_) => const TeamsListScreen(),
       }
     );
   }
