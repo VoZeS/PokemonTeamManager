@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pokemon_team_manager_code/screens/main_menu_screen.dart';
 import 'package:pokemon_team_manager_code/screens/teams_screen.dart';
 import 'firebase_options.dart';
 
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/teams',
+      initialRoute: '/menu',
       routes: {
+        '/menu':(_) => const MainMenu(),
         '/teams': (_) => const TeamsListScreen(),
       }
     );
