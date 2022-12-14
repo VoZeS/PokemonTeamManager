@@ -11,12 +11,13 @@ class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
         children: [
           Align(
-            alignment: const Alignment(0.0, 0.26),
+            alignment: const Alignment(0.0, 0.31),
             child: Transform.rotate(
               angle: -pi / 24,
               child: Transform.scale(
@@ -24,13 +25,13 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 129, 238, 153),
                   width: screenWidth,
-                  height: 130.0,
+                  height: screenHeight / 8,
                 ),
               ),
             ),
           ),
           Align(
-            alignment: const Alignment(0.0, 0.75),
+            alignment: const Alignment(0.0, 0.68),
             child: Transform.rotate(
               angle: -pi / 24,
               child: Transform.scale(
@@ -38,13 +39,13 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 255, 164, 164),
                   width: screenWidth,
-                  height: 130.0,
+                  height: screenHeight / 8,
                 ),
               ),
             ),
           ),
           Align(
-            alignment: const Alignment(0.0, -0.29),
+            alignment: const Alignment(0.0, -0.275),
             child: Transform.rotate(
               angle: pi / 24,
               child: Transform.scale(
@@ -52,7 +53,7 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 164, 222, 255),
                   width: screenWidth,
-                  height: 10.0,
+                  height: screenHeight / 80,
                 ),
               ),
             ),
@@ -66,7 +67,7 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 164, 222, 255),
                   width: screenWidth,
-                  height: 180.0,
+                  height: screenHeight / 4.15,
                 ),
               ),
             ),
@@ -80,7 +81,7 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 164, 222, 255),
                   width: screenWidth,
-                  height: 10.0,
+                  height: screenHeight / 80,
                 ),
               ),
             ),
@@ -110,7 +111,7 @@ class MainMenu extends StatelessWidget {
                 children: [
                   Container(
                     width: 300,
-                    height: 80,
+                    height: screenHeight / 12,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 0, 236, 52),
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -136,7 +137,7 @@ class MainMenu extends StatelessWidget {
                   const SizedBox(height: 80.0),
                   Container(
                     width: 300,
-                    height: 80,
+                    height: screenHeight / 12,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 251, 46, 46),
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
