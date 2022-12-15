@@ -6,6 +6,7 @@ class TextStroke extends StatelessWidget {
   final double size;
   final Color color;
   final Color colorStroke;
+  final double letSpacing;
 
   const TextStroke({
     Key? key,
@@ -13,7 +14,7 @@ class TextStroke extends StatelessWidget {
     required this.text,
     required this.size,
     required this.color,
-    required this.colorStroke,
+    required this.colorStroke, required this.letSpacing,
   }) : super(key: key);
 
   @override
@@ -26,10 +27,11 @@ class TextStroke extends StatelessWidget {
             fontFamily: "Orbitron",
             fontWeight: FontWeight.w900,
             fontSize: size,
+            letterSpacing: letSpacing,
             foreground: Paint()
               ..style = PaintingStyle.stroke
               ..strokeWidth = strokeWidth
-              ..color = Colors.blue),
+              ..color = colorStroke),
       )),
       Center(
           child: Text(
@@ -38,6 +40,7 @@ class TextStroke extends StatelessWidget {
             fontFamily: "Orbitron",
             fontWeight: FontWeight.w900,
             fontSize: size,
+            letterSpacing: letSpacing,
             color: color),
       )),
     ]);
