@@ -1,5 +1,7 @@
+// import 'dart:ffi';
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon_team_manager_code/widgets/text_stroke.dart';
 
@@ -10,6 +12,8 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -25,13 +29,13 @@ class MainMenu extends StatelessWidget {
                 child: Container(
                   color: const Color.fromARGB(255, 129, 238, 153),
                   width: screenWidth,
-                  height: screenHeight / 8,
+                  height: screenHeight / 6,
                 ),
               ),
             ),
           ),
           Align(
-            alignment: const Alignment(0.0, 0.68),
+            alignment: const Alignment(0.0, 0.75),
             child: Transform.rotate(
               angle: -pi / 24,
               child: Transform.scale(
@@ -86,8 +90,16 @@ class MainMenu extends StatelessWidget {
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: IconButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                },
+                icon: const Icon(Icons.logout)),
+          ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
                 children: const [
@@ -104,14 +116,31 @@ class MainMenu extends StatelessWidget {
                       color: Colors.red,
                       colorStroke: Colors.white,
                       size: 24,
-                      letSpacing: 20.0),
+                      letSpacing: 18.0),
+                  SizedBox(height: 10.0),
+                  TextStroke(
+                      text: "1ST GENERATION",
+                      strokeWidth: 2.0,
+                      color: Colors.deepOrange,
+                      colorStroke: Colors.white,
+                      size: 14,
+                      letSpacing: 10.0),
                 ],
+              ),
+              Text(
+                "Welcome, ${user.email}!",
+                style: const TextStyle(
+                    fontFamily: "Orbitron",
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    color: Colors.black,
+                    letterSpacing: 2.0),
               ),
               Column(
                 children: [
                   Container(
                     width: 300,
-                    height: screenHeight / 12,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 0, 236, 52),
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -134,10 +163,10 @@ class MainMenu extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 80.0),
+                  SizedBox(height: screenHeight / 8),
                   Container(
-                    width: 300,
-                    height: screenHeight / 12,
+                    width: 200,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 251, 46, 46),
                       borderRadius: const BorderRadius.all(Radius.circular(20)),

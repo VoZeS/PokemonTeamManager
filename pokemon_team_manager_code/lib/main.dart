@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pokemon_team_manager_code/screens/main_menu_screen.dart';
 import 'package:pokemon_team_manager_code/screens/teams_screen.dart';
+import 'package:pokemon_team_manager_code/widgets/auth_gate.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -9,7 +10,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    const AuthGate(
+      app: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,11 +24,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/menu',
+      initialRoute: '/',
       routes: {
-        '/menu':(_) => const MainMenu(),
+        '/': (_) => const MainMenu(),
         '/teams': (_) => const TeamsListScreen(),
-      }
+      },
     );
   }
 }

@@ -33,7 +33,7 @@ class TeamsListScreen extends StatelessWidget {
                   IconButton(
                     onPressed: (() {
                       Navigator.of(context).pushNamed(
-                        '/menu',
+                        '/',
                       );
                     }),
                     icon: const Icon(Icons.home, color: Colors.black),
