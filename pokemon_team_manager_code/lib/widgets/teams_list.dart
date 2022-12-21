@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_team_manager_code/main.dart';
 import 'package:pokemon_team_manager_code/widgets/team_container.dart';
+import 'package:provider/provider.dart';
 
 class TeamsList extends StatelessWidget {
   const TeamsList({super.key});
@@ -9,9 +11,14 @@ class TeamsList extends StatelessWidget {
   Widget build(BuildContext context) {
     //final teamId = ModalRoute.of(context)!.settings.arguments as String;
     final db = FirebaseFirestore.instance;
+        final userid = context.read<String>();
+
 
     return StreamBuilder(
-      stream: db.collection("/teams").orderBy("createdAt").snapshots(),
+      stream: db
+          .collection("/users/$userid/teams")
+          .orderBy('hintTitle')
+          .snapshots(),
       builder: (
         BuildContext context,
         AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot,
@@ -30,6 +37,12 @@ class TeamsList extends StatelessWidget {
         final querySnap = snapshot.data!;
         final docs = querySnap.docs;
 
+        if (docs.isEmpty) {
+          createTeam(userid, 1, 255, 230, 0);
+          createTeam(userid, 2, 255, 92, 0);
+          createTeam(userid, 3, 255, 0, 219);
+        }
+
         return Expanded(
           child: ListView.builder(
             itemCount: docs.length,
@@ -42,7 +55,7 @@ class TeamsList extends StatelessWidget {
                     hintName: doc['hintTitle'],
                     nameUpdate: (String teamName) {
                       db
-                          .collection("teams")
+                          .collection("/users/$userid/teams")
                           .doc(doc.id)
                           .update({"teamName": teamName});
                     },

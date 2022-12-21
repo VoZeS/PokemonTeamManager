@@ -3,7 +3,9 @@ import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_team_manager_code/main.dart';
 import 'package:pokemon_team_manager_code/widgets/text_stroke.dart';
+import 'package:provider/provider.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({
@@ -12,16 +14,21 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
-
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    final userid = context.read<String>();
 
     return Scaffold(
       body: Stack(
         children: [
           Align(
-            alignment: const Alignment(0.0, 0.31),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                userid,
+                style: const TextStyle(color: Colors.grey),
+              )),
+          Align(
+            alignment: const Alignment(0.0, 0.35),
             child: Transform.rotate(
               angle: -pi / 24,
               child: Transform.scale(
@@ -90,16 +97,8 @@ class MainMenu extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: IconButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                icon: const Icon(Icons.logout)),
-          ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: const [
@@ -126,15 +125,6 @@ class MainMenu extends StatelessWidget {
                       size: 14,
                       letSpacing: 10.0),
                 ],
-              ),
-              Text(
-                "Welcome, ${user.email}!",
-                style: const TextStyle(
-                    fontFamily: "Orbitron",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    color: Colors.black,
-                    letterSpacing: 2.0),
               ),
               Column(
                 children: [
