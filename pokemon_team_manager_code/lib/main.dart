@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pokemon_team_manager_code/screens/main_menu_screen.dart';
+import 'package:pokemon_team_manager_code/screens/pokedex_screen.dart';
+import 'package:pokemon_team_manager_code/screens/pokemon_detail_screen.dart';
 import 'package:pokemon_team_manager_code/screens/teams_screen.dart';
 import 'package:provider/provider.dart';
 //import 'package:pokemon_team_manager_code/widgets/auth_gate.dart';
@@ -44,6 +46,8 @@ class MyApp extends StatelessWidget {
             routes: {
               '/': (_) => const MainMenu(),
               '/teams': (_) => const TeamsListScreen(),
+              '/pokedex': (_) => const PokedexScreen(),
+              '/pokemon-details': (_) => const PokemonDetailScreen(),
             },
           ),
         );

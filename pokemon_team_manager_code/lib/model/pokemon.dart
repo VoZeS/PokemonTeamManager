@@ -47,17 +47,17 @@ class Pokemon {
 }
 //We are only using the 1st gen pokemons (151)
 
-Future<List<Pokemon>> loadUserList([int numPokemons = 151]) async {
+Future<List<Pokemon>> loadPokemonList([int numPokemons = 151]) async {
   final url = Uri.parse(
       "https://pokeapi.co/api/v2/pokemon?limit=$numPokemons&offset=0");
   final response = await http.get(url);
   final json = jsonDecode(response.body);
   final List jsonPokemonList = json["results"];
-  List<Pokemon> userList = [];
+  List<Pokemon> pokemonList = [];
   for (final jsonPokemon in jsonPokemonList) {
-    userList.add(Pokemon.fromJsonLean(jsonPokemon));
+    pokemonList.add(Pokemon.fromJsonLean(jsonPokemon));
   }
-  return userList;
+  return pokemonList;
 }
 
 Future<Pokemon> loadPokemon(int id) async {
