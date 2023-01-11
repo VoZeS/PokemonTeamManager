@@ -163,7 +163,11 @@ class MainMenu extends StatelessWidget {
                       border: Border.all(color: Colors.white, width: 3.0),
                     ),
                     child: TextButton(
-                      onPressed: (() {}),
+                      onPressed: (() {
+                        Navigator.of(context).pushNamed(
+                          '/pokedex',
+                        );
+                      }),
                       child: const Text(
                         "Pokédex",
                         style: TextStyle(
