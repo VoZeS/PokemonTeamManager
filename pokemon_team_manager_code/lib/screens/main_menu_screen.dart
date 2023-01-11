@@ -1,9 +1,9 @@
 // import 'dart:ffi';
 import 'dart:math';
 
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon_team_manager_code/main.dart';
+//import 'package:pokemon_team_manager_code/main.dart';
 import 'package:pokemon_team_manager_code/widgets/text_stroke.dart';
 import 'package:provider/provider.dart';
 
