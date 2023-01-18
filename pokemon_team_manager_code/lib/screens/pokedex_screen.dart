@@ -13,6 +13,7 @@ class PokedexScreen extends StatefulWidget {
 
 class _PokedexScreenState extends State<PokedexScreen> {
   List<Pokemon>? pokemonList;
+  //Pokemon? pokemonDetail;
 
   @override
   void initState() {
@@ -34,16 +35,20 @@ class _PokedexScreenState extends State<PokedexScreen> {
     }
     return Scaffold(
       appBar: AppBar(title: const Text("Pokedex")),
-      body: ListView.separated(
+      body: ListView.builder(
         itemCount: pokemonList!.length,
         itemBuilder: (context, index) {
-          return PokemonWidget(pokemon: pokemonList![index]);
-        },
-        separatorBuilder: (context, index) {
-          return const Divider(
-            height: 1,
-            indent: 70,
-            endIndent: 20,
+          // loadPokemon(pokemonList![index].id).then(
+          //   (loadedPokemonDetail) {
+          //     setState(() {
+          //       pokemonDetail = loadedPokemonDetail;
+          //     });
+          //   },
+          // );
+
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PokemonWidget(pokemon: pokemonList![index]),
           );
         },
       ),

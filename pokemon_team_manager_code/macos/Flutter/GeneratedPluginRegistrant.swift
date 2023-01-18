@@ -10,7 +10,7 @@ import desktop_webview_auth
 import firebase_auth
 import firebase_core
 import firebase_database
-import shared_preferences_macos
+import shared_preferences_foundation
 import sign_in_with_apple
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
