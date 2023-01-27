@@ -29,12 +29,26 @@ class _PokedexScreenState extends State<PokedexScreen> {
   Widget build(BuildContext context) {
     if (pokemonList == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text("Pokedex")),
+        appBar: AppBar(
+            title: const Text("Pokedex"),
+            leading: IconButton(
+              onPressed: (() {
+                Navigator.of(context).pushReplacementNamed('/');
+              }),
+              icon: const Icon(Icons.arrow_back),
+            )),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
     return Scaffold(
-      appBar: AppBar(title: const Text("Pokedex")),
+      appBar: AppBar(
+          title: const Text("Pokedex"),
+          leading: IconButton(
+            onPressed: (() {
+              Navigator.of(context).pushReplacementNamed('/');
+            }),
+            icon: const Icon(Icons.arrow_back),
+          )),
       body: ListView.builder(
         itemCount: pokemonList!.length,
         itemBuilder: (context, index) {

@@ -18,7 +18,7 @@ class PokemonSpot extends StatelessWidget {
         child: IconButton(
           icon: const Icon(Icons.add_rounded),
           onPressed: () {
-            
+            Navigator.of(context).pushReplacementNamed('/pokedex');
           },
         ),
       ),
