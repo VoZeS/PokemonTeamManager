@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pokemon_team_manager_code/model/pokemon.dart';
 import 'package:pokemon_team_manager_code/widgets/pokemon_widget.dart';
 
+import '../widgets/pokemon_list.dart';
+
 class PokedexScreen extends StatefulWidget {
   const PokedexScreen({super.key});
 
@@ -49,23 +51,7 @@ class _PokedexScreenState extends State<PokedexScreen> {
             }),
             icon: const Icon(Icons.arrow_back),
           )),
-      body: ListView.builder(
-        itemCount: pokemonList!.length,
-        itemBuilder: (context, index) {
-          // loadPokemon(pokemonList![index].id).then(
-          //   (loadedPokemonDetail) {
-          //     setState(() {
-          //       pokemonDetail = loadedPokemonDetail;
-          //     });
-          //   },
-          // );
-
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: PokemonWidget(pokemon: pokemonList![index]),
-          );
-        },
-      ),
+      body: const PokemonList(),
     );
   }
 }
