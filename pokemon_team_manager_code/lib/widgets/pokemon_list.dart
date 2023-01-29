@@ -13,7 +13,7 @@ class PokemonList extends StatelessWidget {
     return StreamBuilder(
       stream: db
           .collection("/Pokemons")
-          .orderBy("pokedexNum", descending: false)
+          .orderBy("type", descending: true)
           .snapshots(),
       builder: (
         BuildContext context,
@@ -34,14 +34,28 @@ class PokemonList extends StatelessWidget {
             final doc = docs[index];
             final attack = (doc['attack'] as String);
             final defense = (doc['defense'] as String);
-            final pNumb = (doc['pokedexNum'] as String);
+            //final pNumb = (doc['pokedexNum'] as String);
             final avatar = (doc['avatar'] as String);
+            final type = (doc['type'] as String);
+
             return ListTile(
-              leading: Text(pNumb.toString()),
+              tileColor: type == "Plant"
+                  ? Colors.green[300]
+                  : type == "Water"
+                      ? Colors.blue[200]
+                      : type == "Normal"
+                          ? Colors.brown[200]
+                          : type == "Fire"
+                              ? Colors.red[400]
+                              : type == "Bug"
+                                  ? Colors.purple[200]
+                                  : Colors.grey[300],
+              //leading: Text(pNumb.toString()),
               title: Text(doc['name']),
               subtitle:
                   Text("Att: ${attack.toString()} Def: ${defense.toString()}"),
               trailing: CircleAvatar(
+                backgroundColor: Colors.indigo[50],
                 backgroundImage: NetworkImage(avatar),
                 maxRadius: 25,
                 minRadius: 25,

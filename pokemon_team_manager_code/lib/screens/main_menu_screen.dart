@@ -7,11 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_team_manager_code/widgets/text_stroke.dart';
 import 'package:provider/provider.dart';
 
-class MainMenu extends StatelessWidget {
+class MainMenu extends StatefulWidget {
   const MainMenu({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<MainMenu> createState() => _MainMenuState();
+}
+
+class _MainMenuState extends State<MainMenu> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -138,7 +143,7 @@ class MainMenu extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: (() {
-                        Navigator.of(context).pushNamed(
+                        Navigator.of(context).pushReplacementNamed(
                           '/teams',
                         );
                       }),
@@ -164,7 +169,7 @@ class MainMenu extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: (() {
-                        Navigator.of(context).pushNamed(
+                        Navigator.of(context).pushReplacementNamed(
                           '/pokedex',
                         );
                       }),
